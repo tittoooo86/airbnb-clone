@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
@@ -17,6 +17,7 @@ import { useRouter } from "next/navigation";
 
 const LoginModal = () => {
   const router = useRouter();
+
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
@@ -48,6 +49,11 @@ const LoginModal = () => {
       }
     });
   };
+
+  const toggle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal]);
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
@@ -96,9 +102,9 @@ const LoginModal = () => {
     "
       >
         <p>
-          Already have an account?
+          First time using Airbnb?
           <span
-            onClick={() => {}}
+            onClick={toggle}
             className="
           text-neutral-800
           cursor-pointer 
@@ -106,7 +112,7 @@ const LoginModal = () => {
         "
           >
             {" "}
-            Log in
+            Create an account
           </span>
         </p>
       </div>

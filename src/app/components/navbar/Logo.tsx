@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const Logo = () => {
-  //   const router = useRouter();
+  const router = useRouter();
 
   return (
     <Image
@@ -14,6 +14,7 @@ const Logo = () => {
       height="100"
       src="/images/logo.png"
       priority
+      onClick={() => router.push("/")}
     />
   );
 };

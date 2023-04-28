@@ -1,3 +1,4 @@
+import { usePathname, useSearchParams } from "next/navigation";
 import { BsSnow } from "react-icons/bs";
 import { FaSkiing } from "react-icons/fa";
 import {
@@ -15,7 +16,6 @@ import { MdOutlineVilla } from "react-icons/md";
 import { TbBeach, TbMountain, TbPool } from "react-icons/tb";
 import CategoryBox from "../CategoryBox";
 import Container from "../Container";
-import { usePathname, useSearchParams } from "next/navigation";
 
 export const categories = [
   {
